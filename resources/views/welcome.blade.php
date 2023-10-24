@@ -39,10 +39,83 @@
                 <a href="https://wa.me/5553984734353" target="_blank" class="text-decoration-none text-black"><button type="button" class="btn btn-light contact-button">Fale comigo no whatsapp!</button></a>
                 <h2 class="text-white mt-2">OU</h2>
                 <p class="text-white my-2">Clique no botão abaixo para me enviar uma mensagem descrevendo as características ideais para o seu imóvel. Dessa forma eu posso lhe mostrar as melhores opções.</p>
-                <a href="https://wa.me/5553984734353" target="_blank" class="text-decoration-none text-black"><button type="button" class="btn btn-light contact-button mb-5">Envie-me um e-mail!</button></a>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-light contact-button mb-5">Envie-me um e-mail!</button>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Contato</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Nome:</label>
+                        <input type="text" required placeholder="Digite seu nome..." class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label">E-mail:</label>
+                        <input type="text" required placeholder="Digite seu email..." class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label">Telefone:</label>
+                        <input type="tel" maxlength="14" required data-js="phone"  placeholder="Ex. (xx)xxxx-xxxx" class="form-control" id="telefone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Mensagem:</label>
+                        <textarea class="form-control" id="message-text" style="line-height: 5"></textarea>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Enviar mensagem</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="text-end">
+                <a href="/example2"><button class='btn btn-warning  '> Exemplo 2 </button></a>
             </div>
         </div>
         <footer class=""></footer>
     </body>
     <script type="text/javascript" src="assets/js/cover_background.js"></script>
+    <script>
+        const formato = {
+
+        phone (value) {
+
+        return value
+
+            .replace(/\D/g, '')
+
+            .replace(/(\d{2})(\d)/, '($1)$2')
+
+            .replace(/(\d{4})(\d)/, '$1-$2')
+
+            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+
+            .replace(/(-\d{4})\d+?$/, '$1')
+
+        }
+
+        }
+
+
+
+        document.querySelectorAll('input').forEach(($input) => {
+
+        const field = $input.dataset.js
+
+        $input.addEventListener('input', (e) => {
+
+        e.target.value = formato[field](e.target.value)
+
+        }, false)
+
+        })
+    </script>
 </html>

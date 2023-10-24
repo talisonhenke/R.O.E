@@ -18,7 +18,7 @@ body {
 .gradient-background {
     background: linear-gradient(300deg,deepskyblue,darkviolet,blue);
     background-size: 180% 180%;
-    animation: gradient-animation 27s ease infinite;
+    animation: gradient-animation 15s ease infinite;
   }
   
   @keyframes gradient-animation {
@@ -82,4 +82,8 @@ height: 150px;
 .profile-image .img-profile{
     width: 50%;
     height: auto;
+}
+
+.col-form-label{
+  font-weight: bolder;
 }
